@@ -1,0 +1,87 @@
+<block wx:if="{{mobile > 0}}">
+  <view class='main-wraper'>
+    <navBar title='软著辅助申请小助手' background='#3b65e1' back="{{true}}" home="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick" extClass="lxy-navbar-extclass"></navBar>
+  </view>
+</block>
+<block wx:else>
+  <label for="phone">
+    <view class='main-wraper'>
+      <navBar title='软著辅助申请小助手' background='#3b65e1' back="{{true}}" home="{{true}}" extClass="lxy-navbar-extclass"></navBar>
+    </view>
+  </label>
+</block>
+<view class="top">
+  <view class='top_background'>
+  </view>
+  <view class="card">
+    <view class="c_info">
+      <view class="c_logo">
+        <image src="/images/logo.png"></image>
+      </view>
+      <view class="c_right">
+        <view class="c_title">软著申请助手</view>
+        <view class="c_tag">
+          <text>专业</text>
+          <text>高效</text>
+          <text>简单</text>
+          <text>费用极低</text>
+        </view>
+      </view>
+    </view>
+    <view class="c_type">
+      <view class="c_t_left">
+        <view class="c_t_title">委托代理登记 </view>
+        <view class="c_t_money">
+          <text>￥</text>
+          <text>399</text>
+          <text>起</text>
+        </view>
+        <view class="c_t_f">（2-35个工作日）</view>
+      </view>
+      <!-- <view class="c_t_right">
+        <view class="c_t_o">自行办理登记 </view>
+        <view class="c_t_t">
+          <text>￥</text>
+          <text>99</text>
+          <text>起</text>
+        </view>
+        <view class="c_t_f">(暂未开放)</view>
+      </view> -->
+      <button class="c_t_right" style="padding:0;background:#fff;" open-type="contact" bindcontact="handleContact" hover-class="none" >
+        <view style="text-align:center;height:120rpx;margin-top:16rpx;">
+          <image src="/images/kefu.png" style="width:120rpx;height:120rpx;"></image>
+        </view>
+        <view class="c_t_f" style="margin:0;">售前客服</view>
+      </button>
+      <view class="c_t_line"></view>
+    </view>
+    <block wx:if="{{mobile > 0}}">
+      <button id="share_img" hover-class="none" open-type="share">
+        <image src="/images/fx.png"></image>
+      </button>
+    </block>
+    <block wx:else>
+      <label for="phone">
+        <image src="/images/fx.png" id="share_img"></image>
+      </label>
+    </block>
+  </view>
+</view>
+<view class="zy">
+  <image src="/images/zy.png"></image>
+</view>
+<view class="go">
+  <block wx:if="{{mobile > 0}}">
+    <navigator url="/pages/form/index" hover-class="none" animation="{{animationMiddleHeaderItem}}">
+      <image src="/images/go.png" animation="{{animationMiddleHeaderItem}}"></image>
+    </navigator>
+  </block>
+  <block wx:else>
+    <label for="phone">
+      <image src="/images/go.png"></image>
+    </label>
+  </block>
+</view>
+<button class="bt_sd" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" id="phone" style="display:none"></button>
+<!-- 客服 -->
+<!-- <button open-type="contact" bindcontact="handleContact" style='display:none' id='kefu'>客服消息</button> -->

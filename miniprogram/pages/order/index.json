@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单中心",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "tui-fab": "/components/tui-fab/tui-fab",
+    "side-slip": "/components/del/del"
+  }
+}

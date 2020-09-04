@@ -1,0 +1,55 @@
+<view class="total">
+	<view class="list" wx:for="{{order_list}}">
+		<side-slip wx:key="key" bind:delete="delete" data-index="{{item._id}}">
+			<!-- <view catchtap="go_list" data-order="{{item.order_number}}"> -->
+			<view data-order="{{item.order_number}}">
+				<view class="box one">
+					<view>
+						<text>订单号</text>
+					</view>
+					<view>
+						<text>{{item.order_number}}</text>
+					</view>
+					<view style="text-align:right">
+						<text>{{item.pay_status == 1 ? '已付款':'待付款'}}</text>
+					</view>
+				</view>
+				<view class="box two">
+					<view style="flex:1.5">
+						<text>方式</text>
+					</view>
+					<view>{{item.type == 0 ? '著作权委托代理登记':'自行代理登记'}}</view>
+				</view>
+				<view class="box three">
+					<text style="text-align:left;font-size:26rpx;">{{item.time}}</text>
+					<text>合计：￥{{item.price}}元</text>
+				</view>
+			</view>
+			<view class="box four">
+				<button open-type="contact" catchtap="" hover-class="none">在线客服</button>
+				<button catchtap="mail_btn" data-value="{{item._id}}" data-index="{{index}}" hover-class="none" wx:if="{{item.order_status == '1'}}">邮寄</button>
+				<button catchtap="other_btn" hover-class="none" wx:if="{{item.other_status == 1}}" style="width:200rpx!important;margin-left:35rpx;" data-btn="1">下载打印附件</button>
+				<button catchtap="pay_money" data-id="{{item._id}}" data-body="{{item.type}}" data-order="{{item.order_number}}" data-price="{{item.price}}" hover-class="none" wx:if="{{item.pay_status == 0}}">付款</button>
+
+			</view>
+		</side-slip>
+	</view>
+</view>
+<button open-type="contact" bindcontact="handleContact" style='display:none' id='kefu'>客服消息</button>
+<!-- 邮寄信息 -->
+<modal hidden="{{mail}}" cancel-text="" confirm-text='' title="邮寄" bindcancel="hidden_btn">
+	<view class="mail">
+		<text>\n</text>
+		<text>地址：北京市西城区天桥南大街1号北京天桥艺术大厦A座302室；\n</text>
+		<text>收件人：软件登记部；010-84195634\n</text>
+		<text>邮编：100050\n</text>
+	</view>
+</modal>
+<!-- 下载附件信息-->
+<modal hidden="{{other}}" cancel-text="" confirm-text='' title="下载打印附件" bindcancel="hidden_btn">
+	<view class="other">
+		<text>稍后会将附件发送至您的邮箱,请注意查收\n</text>
+		<text>如有疑问请联系客服</text>
+	</view>
+</modal>
+<tui-fab left="{{left}}" right="{{right}}" bottom="{{bottom}}" bgColor="{{bgColor}}" btnList="{{btnList}}" bind:click="onClick"></tui-fab>

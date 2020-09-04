@@ -1,0 +1,15 @@
+<!--pages/income/收入提现-->
+<view class="top">
+  <view>总人数</view>
+  <view>{{people}}</view>
+</view>
+<view class="list">
+  <view class="l-top">
+    <text>邀请人电话</text>
+    <text>邀请时间</text>
+  </view>
+  <view class="l-list" wx:for="{{list}}">
+    <text>{{item.mobile}}</text>
+    <text>{{item.addtime}}</text>
+  </view>
+</view>

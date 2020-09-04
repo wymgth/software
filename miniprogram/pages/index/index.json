@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "软著辅助申请小助手",
+  "navigationBarBackgroundColor": "#3B65E1",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "navBar": "/components/navBar/navBar"
+  }
+}
