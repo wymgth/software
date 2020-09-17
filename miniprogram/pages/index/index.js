@@ -138,7 +138,7 @@ Page({
                 data: {
                   mobile: login_res.result,
                   addtime: db.serverDate(),
-                  reffer:that.data.link_people,//推荐人openid
+                  reffer:that.data.link_people,//管理员身份
                 },
                 success: res => {
                   // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id

@@ -65,28 +65,247 @@
   border-bottom: 1px solid rgba(247, 247, 247, 1);
 }
 
-.l-list text {
+.l-list view {
   flex: 1;
   text-align: center;
 }
 
-.l-list text:nth-child(1) {
+.l-list view:nth-child(1) {
   font-size: 26rpx;
   font-family: PingFang SC;
   font-weight: 500;
   color: rgba(43, 43, 43, 1);
 }
 
-.l-list text:nth-child(2) {
+.l-list view:nth-child(2) {
   font-size: 26rpx;
   font-family: PingFang SC;
   font-weight: 500;
   color: rgba(43, 43, 43, 1);
 }
 
-.l-list text:nth-child(3) {
+.l-list view:nth-child(3) {
   font-size: 26rpx;
   font-family: PingFang SC;
   font-weight: 500;
   color: rgba(26, 173, 25, 1);
 }
+
+.l-list view text {
+  display: block;
+  /* width: 125rpx; */
+  height: 47rpx;
+  /* background: rgba(26, 173, 25, 1); */
+  margin: 0 auto;
+  margin-top: 18rpx;
+  border-radius: 50rpx;
+  line-height: 47rpx;
+  color: black;
+}
+
+/* 提现 */
+
+.model {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 999;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+}
+
+.modalDlg {
+  width: 603rpx;
+  height: 354rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 8px 22px 2px rgba(0, 0, 0, 0.11);
+  border-radius: 4px;
+  position: fixed;
+  top: 350rpx;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.windowRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 110rpx;
+  width: 100%;
+}
+
+.wenzi {
+  font-size: 33rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(40, 40, 40, 1);
+  margin: 0 auto;
+  margin-top: 39rpx;
+}
+
+.shuru {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid rgba(234, 234, 234, 1);
+}
+
+.kuang {
+  width: 100%;
+  height: 100%;
+}
+
+.kuang input {
+  height: 100%;
+  line-height: 100rpx;
+}
+
+.btn {
+  width: 373rpx;
+  height: 85rpx;
+  line-height: 52rpx;
+  background: rgba(27, 182, 88, 1);
+  border-radius: 50rpx;
+  margin-top: 9%;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+}
+
+.all {
+  display: inline-block;
+  width: 97rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  border: 1px solid rgba(35, 192, 149, 1);
+  border-radius: 4rpx;
+  font-size: 23rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(36, 193, 145, 1);
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+li {
+  width: 650rpx;
+  display: block;
+  height: 136rpx;
+  border-top: 1px solid rgba(238, 238, 238, 1);
+  line-height: 136rpx;
+  padding: 0 50rpx 0 50rpx;
+}
+
+.left {
+  width: 400rpx;
+  height: 100%;
+  float: left;
+}
+
+.left text {
+  display: block;
+}
+
+.left text:nth-child(1) {
+  width: 140rpx;
+  height: 40rpx;
+  font-size: 31rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(40, 40, 40, 1);
+  line-height: 40rpx;
+  margin-top: 30rpx;
+}
+
+.left text:nth-child(2) {
+  width: 230px;
+  height: 16px;
+  line-height: 16rpx;
+  font-size: 25rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(89, 89, 89, 1);
+  margin-top: 28rpx;
+}
+
+.right {
+  float: right;
+}
+
+button::after {
+  width: 0;
+  height: 0;
+}
+/* //提示信息 */
+.t_two {
+  text-align: center;
+  margin-top: -20rpx;
+}
+/* /下拉/ */
+/* picker start*/
+
+.mask-screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9;
+}
+
+.picker-box {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  background: #fff;
+}
+
+.picker-header {
+  width: 100%;
+  height: 90rpx;
+  padding: 0 46rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  background: #fff;
+}
+
+.list-item::after {
+  left: 0;
+}
+
+.btn-cancle {
+  padding: 20rpx;
+  color: #888;
+}
+
+.btn-sure {
+  padding: 20rpx;
+  color: #5677fc;
+}
+
+.picker-view {
+  width: 100%;
+  height: 260px;
+}
+
+.item {
+  line-height: 50px;
+  text-align: center;
+}
+
+/* picker end*/

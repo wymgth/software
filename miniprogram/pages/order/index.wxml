@@ -2,7 +2,7 @@
 	<view class="list" wx:for="{{order_list}}">
 		<side-slip wx:key="key" bind:delete="delete" data-index="{{item._id}}">
 			<!-- <view catchtap="go_list" data-order="{{item.order_number}}"> -->
-			<view data-order="{{item.order_number}}">
+			<view data-order="{{item.order_number}}" catchtap="go_list">
 				<view class="box one">
 					<view>
 						<text>订单号</text>
@@ -11,11 +11,15 @@
 						<text>{{item.order_number}}</text>
 					</view>
 					<view style="text-align:right">
-						<text>{{item.pay_status == 1 ? '已付款':'待付款'}}</text>
+						<text wx:if="{{item.order_status == 1}}">已付款</text>
+						<text wx:if="{{item.order_status == 2}}">授权代理</text>
+						<text wx:if="{{item.order_status == 3}}">打印盖章邮寄</text>
+						<text wx:if="{{item.order_status == 4}}">版权中心审核</text>
+						<text wx:if="{{item.order_status == 5}}">快递下证</text>
 					</view>
 				</view>
 				<view class="box two">
-					<view style="flex:1.5">
+					<view style="flex:0.4">
 						<text>方式</text>
 					</view>
 					<view>{{item.type == 0 ? '著作权委托代理登记':'自行代理登记'}}</view>
@@ -27,10 +31,9 @@
 			</view>
 			<view class="box four">
 				<button open-type="contact" catchtap="" hover-class="none">在线客服</button>
-				<button catchtap="mail_btn" data-value="{{item._id}}" data-index="{{index}}" hover-class="none" wx:if="{{item.order_status == '1'}}">邮寄</button>
+				<!-- <button catchtap="mail_btn" data-value="{{item._id}}" data-index="{{index}}" hover-class="none" wx:if="{{item.order_status == '1'}}">邮寄</button> -->
 				<button catchtap="other_btn" hover-class="none" wx:if="{{item.other_status == 1}}" style="width:200rpx!important;margin-left:35rpx;" data-btn="1">下载打印附件</button>
 				<button catchtap="pay_money" data-id="{{item._id}}" data-body="{{item.type}}" data-order="{{item.order_number}}" data-price="{{item.price}}" hover-class="none" wx:if="{{item.pay_status == 0}}">付款</button>
-
 			</view>
 		</side-slip>
 	</view>
@@ -52,4 +55,4 @@
 		<text>如有疑问请联系客服</text>
 	</view>
 </modal>
-<tui-fab left="{{left}}" right="{{right}}" bottom="{{bottom}}" bgColor="{{bgColor}}" btnList="{{btnList}}" bind:click="onClick"></tui-fab>
+<tui-fab left="{{left}}" right="{{right}}" bottom="{{bottom}}" bgColor="{{bgColor}}" btnList="{{btnList}}" bind:click="onClick" wx:if="{{reffer == 1}}"></tui-fab>

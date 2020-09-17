@@ -1,15 +1,37 @@
 <!--pages/income/收入提现-->
 <view class="top">
-  <view>总人数</view>
-  <view>{{people}}</view>
+	<view>总人数</view>
+	<view>{{people}}</view>
 </view>
 <view class="list">
-  <view class="l-top">
-    <text>邀请人电话</text>
-    <text>邀请时间</text>
-  </view>
-  <view class="l-list" wx:for="{{list}}">
-    <text>{{item.mobile}}</text>
-    <text>{{item.addtime}}</text>
-  </view>
+	<view class="l-top">
+		<text style="flex:1.5">订单编号</text>
+		<text>订单状态</text>
+	</view>
+	<view class="l-list" wx:for="{{list}}">
+		<view style="flex:1.5"  data-order="{{item.order_number}}" catchtap="go_list">{{item.order_number}}</view>
+		<view bindtap="show_order" data-id="{{item._id}}">
+			<text wx:if="{{item.order_status == 1 }}">已付款</text>
+			<text wx:if="{{item.order_status == 2}}">授权代理</text>
+			<text wx:if="{{item.order_status == 3}}">打印盖章邮寄</text>
+			<text wx:if="{{item.order_status == 4}}">版权中心审核</text>
+			<text wx:if="{{item.order_status == 5}}">快递下证</text>
+		</view>
+	</view>
+</view>
+<view class="conatiner">
+	<view class="search-box">
+	</view>
+	<view class="mask-screen" bindtap="hideps" hidden="{{!showpsStatus}}"></view>
+	<view class="picker-box" animation="{{animationDatas}}" hidden="{{!showpsStatus}}">
+		<view class="picker-header list-item">
+			<view class="btn-cancle" hover-class="opcity" hover-stay-time="150" catchtap="hideps">取消</view>
+			<view class="btn-sure" hover-class="opcity" hover-stay-time="150" catchtap="picker_ps">确定</view>
+		</view>
+		<picker-view indicator-style="height: 50px;" class="picker-view" value="{{value}}" bindchange="columnps">
+			<picker-view-column>
+				<view wx:for="{{addr_list}}" class="item">{{item.name}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
 </view>

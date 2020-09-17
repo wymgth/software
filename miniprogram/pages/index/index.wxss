@@ -105,7 +105,8 @@
   height: 207rpx;
 }
 
-.c_t_left, .c_t_right {
+.c_t_left,
+.c_t_right {
   flex: 1;
 }
 
@@ -165,9 +166,9 @@
 
 .zy {
   width: 750rpx;
-  height: 2268rpx;
+  height: 2278rpx;
   margin-top: 49rpx;
-  margin-bottom: 190rpx;
+  padding-bottom: 180rpx;
 }
 
 .zy image {
@@ -176,11 +177,11 @@
 }
 
 .go {
-  margin-top: 37rpx;
+  /* margin-top: 37rpx; */
   width: 100%;
   text-align: center;
   position: fixed;
-  bottom: 10rpx;
+  bottom: 0;
 }
 
 .go image {

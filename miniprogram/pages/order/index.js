@@ -1,7 +1,6 @@
 // pages/weituo/order/index.js
 var util = require("../../utils/util.js");
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -22,7 +21,7 @@ Page({
       //图片宽度 rpx
       imgWidth: 64,
       //名称
-      text: "小伙伴",
+      text: "订单",
       //字体大小
       fontSize: 34,
       //字体颜色
@@ -43,16 +42,17 @@ Page({
   onReady: function () {
 
   },
-
+  // order_status 0 1付款 2 授权代理 3 打印盖章邮寄 4 版权中心审核 5  快递下证
+  // 在线填表，付款，授权代理，打印盖章邮寄，版权中心审核，快递下证
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     this.setData({
-      order_list:[]
+      order_list:[],
+      reffer:wx.getStorageSync('user').reffer
     })
     this.order();
-
   },
   // 查询订单信息
   order: function () {
@@ -227,5 +227,9 @@ Page({
       }
     })
   },
-
+  go_list: util.throttle(function(e) {
+    wx.navigateTo({
+      url: '/pages/info/index?number=' + e.currentTarget.dataset.order,
+    })
+  }, 1000),
 })

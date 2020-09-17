@@ -68,7 +68,7 @@
   </view>
 </view>
 <view class="zy">
-  <image src="/images/zy.png"></image>
+  <image src="/images/zy.jpg"></image>
 </view>
 <view class="go">
   <block wx:if="{{mobile > 0}}">
